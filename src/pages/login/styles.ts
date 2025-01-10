@@ -1,4 +1,4 @@
-import { createStyles } from 'antd-style'
+import { createStyles } from "antd-style";
 
 export const LoginStyle = createStyles(({ css, token }) => {
   return {
@@ -67,7 +67,7 @@ export const LoginStyle = createStyles(({ css, token }) => {
         left: 24px;
         bottom: 0;
 
-        @media (max-width: 768px)  {
+        @media (max-width: 768px) {
           position: static;
           height: auto;
         }
@@ -76,13 +76,13 @@ export const LoginStyle = createStyles(({ css, token }) => {
           display: flex;
           justify-content: center;
           padding-left: 0;
-          margin-bottom: 24px;
           list-style-type: none;
 
           @media (max-width: 768px) {
             flex-direction: column;
             align-items: center;
             gap: 24px;
+            margin-bottom: 24px;
           }
         }
 
@@ -112,12 +112,5 @@ export const LoginStyle = createStyles(({ css, token }) => {
         }
       }
     `,
-    ButtonLinkStyle: css`
-      padding-left: 0;
-      padding-right: 0;
-      font-weight: bold;
-      background: none !important;
-      border-color: none !important;
-    `
   };
 })
