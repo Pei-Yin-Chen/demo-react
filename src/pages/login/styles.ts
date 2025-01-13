@@ -5,16 +5,16 @@ export const LoginStyle = createStyles(({ css, token }) => {
     LoginWrapper: css`
       width: 100%;
       height: 100vh;
-      min-height: 500px;
+      min-height: 600px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       background: linear-gradient(to bottom, #a2d5c6, #07689f);
 
       @media (max-width: 768px) {
         min-height: 860px;
-        justify-content: space-between;
+        justify-content: space-around;
       }
 
       .login-main {
@@ -26,13 +26,16 @@ export const LoginStyle = createStyles(({ css, token }) => {
 
         @media (max-width: 768px) {
           height: calc(100vh - 168px);
+          flex-grow: 1;
         }
       }
 
       .login-box {
         width: 380px;
         padding: 24px;
-        border-radius: 24px;
+        border-radius: 12px;
+        background-color: #ffffff;
+        opacity: 0.8;
 
         .login-welcome-area {
           height: 48px;
@@ -45,10 +48,22 @@ export const LoginStyle = createStyles(({ css, token }) => {
           font-size: 20px;
         }
 
-        .login-form-title {
-          color: #323233;
-          font-weight: bold;
-          line-height: 24px;
+        .login-form-box {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          padding-bottom: 8px;
+
+          .login-form-box-title {
+            color: #323233;
+            font-weight: bold;
+            font-size: 16px;
+          }
+
+          .login-form-box-messsage {
+            color: #ff4d4f;
+            font-size: 16px;
+          }
         }
 
         .login-msg-area {
@@ -60,26 +75,29 @@ export const LoginStyle = createStyles(({ css, token }) => {
 
       .login-footer {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
         height: 48px;
+        width: 100%;
         position: fixed;
-        left: 24px;
+        left: 0;
         bottom: 0;
 
         @media (max-width: 768px) {
+          justify-content: center;
           position: static;
           height: auto;
         }
 
         .login-footer-links {
           display: flex;
-          justify-content: center;
+          justify-content: flex-start;
           padding-left: 0;
           list-style-type: none;
 
           @media (max-width: 768px) {
             flex-direction: column;
+            justify-content: center;
             align-items: center;
             gap: 24px;
             margin-bottom: 24px;
@@ -100,8 +118,6 @@ export const LoginStyle = createStyles(({ css, token }) => {
         }
 
         li:first-child {
-          padding-left: 0;
-
           @media (max-width: 768px) {
             padding: 0;
           }

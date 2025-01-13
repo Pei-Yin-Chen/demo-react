@@ -13,5 +13,8 @@ export const CommonStyle = createStyles(({ css, token }) => {
       padding: 8px;
       border-radius: 4px;
     `,
+    InputStyle: css`
+      border-radius: 4px;
+    `
   };
 });
