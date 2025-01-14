@@ -13,8 +13,22 @@ export const CommonStyle = createStyles(({ css, token }) => {
       padding: 8px;
       border-radius: 4px;
     `,
+
     InputStyle: css`
       border-radius: 4px;
-    `
+    `,
+
+    DropdownBasicStyle: css`
+      color: #323233;
+      font-weight: bold;
+      .ant-space-gap-col-small {
+        column-gap: 0;
+        .ant-space-item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    `,
   };
 });

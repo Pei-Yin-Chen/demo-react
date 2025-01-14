@@ -1,22 +1,54 @@
-import { useState } from "react"
-import { Form, Flex, Input, Checkbox, Button, Divider } from "antd";
+import { useContext, useState } from "react";
+import {
+  Form,
+  Flex,
+  Input,
+  Checkbox,
+  Button,
+  Divider,
+  Dropdown,
+  Space,
+} from "antd";
+import type { MenuProps } from "antd";
 import { useResponsive } from "antd-style";
 import { LoginStyle } from "./styles";
 import { CommonStyle } from "../../styles/common";
 import SvgIcon from "../../components/SvgIcon";
+import { LanguageContext } from "../../App";
+import { languageMap } from "../../locale";
+import { FormattedMessage, useIntl } from "react-intl";
 
 function LoginPage() {
   const [errorMsg, setErrorMsg] = useState(false);
   const { md } = useResponsive();
   const { styles: loginStyles } = LoginStyle();
   const { styles: commonStyles } = CommonStyle();
+  const { locale, setLocale } = useContext(LanguageContext);
+  const [language, setLanguage] = useState('English');
+  const intl = useIntl();
 
-  const handleSubmit = (values: { account: string; password: string; isRemember: boolean }) => {
-    if (values.account === 'admin' && values.password === 'admin') {
+  const handleSubmit = (values: {
+    account: string;
+    password: string;
+    isRemember: boolean;
+  }) => {
+    if (values.account === "admin" && values.password === "admin") {
       setErrorMsg(false);
     } else {
       setErrorMsg(true);
     }
+  };
+
+  const menuItems: MenuProps["items"] = Object.entries(languageMap).map(
+    ([key, label]) => ({
+      key,
+      label
+    })
+  );
+
+  const onClick: MenuProps["onClick"] = ({ key }) => {
+    setLocale(key);
+    setLanguage(languageMap[key] || 'English');
   };
 
   return (
@@ -31,59 +63,58 @@ function LoginPage() {
           >
             <div className="login-welcome-area">Welcome to React</div>
             <div className="login-form-box">
-              {!errorMsg && <div className="login-form-box-title">Sign in</div>}
-              {errorMsg && <div className="login-form-box-messsage">
-                Invalid username or password
-              </div>}
+              {!errorMsg && <div className="login-form-box-title"><FormattedMessage id="sign_in" /></div>}
+              {errorMsg && (
+                <div className="login-form-box-messsage">
+                  Invalid username or password
+                </div>
+              )}
             </div>
             <Flex vertical>
               <Form.Item
                 name="account"
-                rules={[{ required: true, message: 'Please input your account!' }]}
+                rules={[
+                  { required: true, message: intl.formatMessage({ id: 'p_i_account' }) },
+                ]}
               >
                 <Input
                   className={commonStyles.InputStyle}
                   size="large"
-                  placeholder="Account"
+                  placeholder={intl.formatMessage({ id: 'account' })}
                 />
               </Form.Item>
               <Form.Item
                 name="password"
-                rules={[{ required: true, message: 'Please input your password!' }]}
+                rules={[
+                  { required: true, message: intl.formatMessage({ id: 'p_i_password' }) },
+                ]}
               >
                 <Input.Password
                   className={commonStyles.InputStyle}
                   size="large"
-                  placeholder="Password"
+                  placeholder={intl.formatMessage({ id: 'password' })}
                 />
               </Form.Item>
             </Flex>
             <Flex gap="small" vertical>
               <Flex justify="space-between" align="center">
-                <Form.Item
-                  name="isRemember"
-                  valuePropName="checked"
-                  noStyle
-                >
-                  <Checkbox>Remenber me</Checkbox>
+                <Form.Item name="isRemember" valuePropName="checked" noStyle>
+                  <Checkbox><FormattedMessage id="remember_me" /></Checkbox>
                 </Form.Item>
                 <Button
                   className={commonStyles.ButtonLinkStyle}
                   color="primary"
                   variant="link"
                 >
-                  Forgot password
+                  { intl.formatMessage({ id: 'forgot_password' }) }
                 </Button>
               </Flex>
-              <Button
-                type="primary"
-                size="large"
-                htmlType="submit"
-                block
-              >
-                Sign in
+              <Button type="primary" size="large" htmlType="submit" block>
+                <FormattedMessage id="sign_in" />
               </Button>
-              <Divider plain>or sign in with</Divider>
+              <Divider plain>
+                <FormattedMessage id="or_sign_in_with" />
+              </Divider>
               <Flex
                 justify="space-between"
                 vertical={md ? false : true}
@@ -120,10 +151,31 @@ function LoginPage() {
       </div>
       <div className="login-footer">
         <ul className="login-footer-links">
-          <li className="login-footer-item">Privacy Policy</li>
-          <li className="login-footer-item">Content</li>
-          <li className="login-footer-item">Help</li>
-          <li className="login-footer-item">Activate License</li>
+          <li className="login-footer-item">
+            <FormattedMessage id="privacy_policy" />
+          </li>
+          <li className="login-footer-item">
+            <FormattedMessage id="contact_us" />
+          </li>
+          <li className="login-footer-item">
+            <FormattedMessage id="help" />
+          </li>
+          <li className="login-footer-item">
+            <Dropdown
+              menu={{ items: menuItems, onClick }}
+              className={commonStyles.DropdownBasicStyle}
+            >
+              <a onClick={(e) => e.preventDefault()}>
+                <Space>
+                  { language }
+                  <SvgIcon
+                    name="triangle-down-normal"
+                    size="24"
+                  />
+                </Space>
+              </a>
+            </Dropdown>
+          </li>
         </ul>
       </div>
     </div>
