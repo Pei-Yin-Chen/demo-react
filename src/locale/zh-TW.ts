@@ -11,6 +11,10 @@ const zh_TW = {
   p_i_password: "請輸入您的密碼",
   remember_me: "記住我",
   sign_in: "登入",
+
+  /* Header */
+  language: "語言",
+  logout: "退出系統",
 };
 
 export default zh_TW;

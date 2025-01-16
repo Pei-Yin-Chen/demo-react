@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Form,
   Flex,
@@ -24,8 +25,9 @@ function LoginPage() {
   const { styles: loginStyles } = LoginStyle();
   const { styles: commonStyles } = CommonStyle();
   const { locale, setLocale } = useContext(LanguageContext);
-  const [language, setLanguage] = useState('English');
+  const [language, setLanguage] = useState("English");
   const intl = useIntl();
+  const navigate = useNavigate();
 
   const handleSubmit = (values: {
     account: string;
@@ -34,6 +36,7 @@ function LoginPage() {
   }) => {
     if (values.account === "admin" && values.password === "admin") {
       setErrorMsg(false);
+      navigate("/");
     } else {
       setErrorMsg(true);
     }
@@ -42,13 +45,13 @@ function LoginPage() {
   const menuItems: MenuProps["items"] = Object.entries(languageMap).map(
     ([key, label]) => ({
       key,
-      label
+      label,
     })
   );
 
   const onClick: MenuProps["onClick"] = ({ key }) => {
     setLocale(key);
-    setLanguage(languageMap[key] || 'English');
+    setLanguage(languageMap[key] || "English");
   };
 
   return (
@@ -63,7 +66,11 @@ function LoginPage() {
           >
             <div className="login-welcome-area">Welcome to React</div>
             <div className="login-form-box">
-              {!errorMsg && <div className="login-form-box-title"><FormattedMessage id="sign_in" /></div>}
+              {!errorMsg && (
+                <div className="login-form-box-title">
+                  <FormattedMessage id="sign_in" />
+                </div>
+              )}
               {errorMsg && (
                 <div className="login-form-box-messsage">
                   Invalid username or password
@@ -74,39 +81,47 @@ function LoginPage() {
               <Form.Item
                 name="account"
                 rules={[
-                  { required: true, message: intl.formatMessage({ id: 'p_i_account' }) },
+                  {
+                    required: true,
+                    message: intl.formatMessage({ id: "p_i_account" }),
+                  },
                 ]}
               >
                 <Input
                   className={commonStyles.InputStyle}
                   size="large"
-                  placeholder={intl.formatMessage({ id: 'account' })}
+                  placeholder={intl.formatMessage({ id: "account" })}
                 />
               </Form.Item>
               <Form.Item
                 name="password"
                 rules={[
-                  { required: true, message: intl.formatMessage({ id: 'p_i_password' }) },
+                  {
+                    required: true,
+                    message: intl.formatMessage({ id: "p_i_password" }),
+                  },
                 ]}
               >
                 <Input.Password
                   className={commonStyles.InputStyle}
                   size="large"
-                  placeholder={intl.formatMessage({ id: 'password' })}
+                  placeholder={intl.formatMessage({ id: "password" })}
                 />
               </Form.Item>
             </Flex>
             <Flex gap="small" vertical>
               <Flex justify="space-between" align="center">
                 <Form.Item name="isRemember" valuePropName="checked" noStyle>
-                  <Checkbox><FormattedMessage id="remember_me" /></Checkbox>
+                  <Checkbox>
+                    <FormattedMessage id="remember_me" />
+                  </Checkbox>
                 </Form.Item>
                 <Button
                   className={commonStyles.ButtonLinkStyle}
                   color="primary"
                   variant="link"
                 >
-                  { intl.formatMessage({ id: 'forgot_password' }) }
+                  {intl.formatMessage({ id: "forgot_password" })}
                 </Button>
               </Flex>
               <Button type="primary" size="large" htmlType="submit" block>
@@ -167,7 +182,7 @@ function LoginPage() {
             >
               <a onClick={(e) => e.preventDefault()}>
                 <Space>
-                  { language }
+                  {language}
                   <SvgIcon
                     name="triangle-down-normal"
                     size="24"

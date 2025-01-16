@@ -11,6 +11,10 @@ const en_US = {
   p_i_password: "Please input your password",
   remember_me: "Remember me",
   sign_in: "Sign In",
+
+  /* Header */
+  language: "Language",
+  logout: "Log Out",
 };
 
 export default en_US;

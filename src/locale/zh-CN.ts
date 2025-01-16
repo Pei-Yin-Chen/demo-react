@@ -11,6 +11,10 @@ const zh_CN = {
   p_i_password: "请输入您的密码",
   remember_me: "记住我",
   sign_in: "登录",
+
+  /* Header */
+  language: "语言",
+  logout: "退出登录",
 };
 
 export default zh_CN;

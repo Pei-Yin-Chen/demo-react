@@ -6,12 +6,38 @@ export const CommonStyle = createStyles(({ css, token }) => {
       padding-left: 0;
       padding-right: 0;
       font-weight: bold;
-      background: none !important;
-      border-color: none !important;
+
+      .ant-btn-variant-link {
+        box-shadow: none;
+      }
+
+      .ant-btn-color-primary {
+        box-shadow: none;
+      }
+
+      :hover {
+        border: none;
+      }
+      :focus {
+        outline: none;
+      }
     `,
+
     ButtonOutlineStyle: css`
       padding: 8px;
       border-radius: 4px;
+    `,
+
+    ButtonTextStyle: css`
+      :hover {
+        border: none;
+      }
+      :focus {
+        outline: none;
+      }
+      .ant-btn-text:hover {
+        border: none;
+      }
     `,
 
     InputStyle: css`
