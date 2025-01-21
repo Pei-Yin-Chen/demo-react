@@ -25,7 +25,6 @@ function LoginPage() {
   const { styles: loginStyles } = LoginStyle();
   const { styles: commonStyles } = CommonStyle();
   const { locale, setLocale } = useContext(LanguageContext);
-  const [language, setLanguage] = useState("English");
   const intl = useIntl();
   const navigate = useNavigate();
 
@@ -51,7 +50,6 @@ function LoginPage() {
 
   const onClick: MenuProps["onClick"] = ({ key }) => {
     setLocale(key);
-    setLanguage(languageMap[key] || "English");
   };
 
   return (
@@ -182,7 +180,7 @@ function LoginPage() {
             >
               <a onClick={(e) => e.preventDefault()}>
                 <Space>
-                  {language}
+                  {languageMap[locale]}
                   <SvgIcon
                     name="triangle-down-normal"
                     size="24"

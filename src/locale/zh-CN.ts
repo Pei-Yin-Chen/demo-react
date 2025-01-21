@@ -15,6 +15,11 @@ const zh_CN = {
   /* Header */
   language: "语言",
   logout: "退出登录",
+
+  /* 登入頁面設定 */
+  loginPage: "登录页面",
+  pageSetting: "自定义登录页面设定",
+  loginPageView: "登录页面预览",
 };
 
 export default zh_CN;

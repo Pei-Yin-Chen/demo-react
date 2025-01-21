@@ -2,6 +2,7 @@ import { lazy } from "react";
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 
 import RootContainer from "../components/layout/RootContainer";
+import LoginSettingPage from "../pages/loginSetting";
 
 const LoginPage = lazy(() => import("../pages/login"));
 
@@ -9,6 +10,12 @@ const routes: RouteObject[] = [
   {
     path: "/",
     element: <RootContainer />,
+    children: [
+      {
+        path: "loginSetting",
+        element: <LoginSettingPage />,
+      },
+    ],
   },
   {
     path: "login",

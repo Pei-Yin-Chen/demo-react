@@ -10,12 +10,12 @@ import { IntlProvider } from "react-intl";
 import { locales } from "./locale";
 
 const LanguageContext = createContext({
-  locale: "en-US",
+  locale: "zh-TW",
   setLocale: (lang: string) => {},
 });
 
 function App() {
-  const [locale, setLocale] = useState("en-US");
+  const [locale, setLocale] = useState("zh-TW");
 
   const antdLocale =
     locale === "zh-CN" ? zhCN : locale === "zh-TW" ? zhTW : enUS;
@@ -26,7 +26,7 @@ function App() {
         <IntlProvider
           locale={locale}
           messages={locales[locale]}
-          defaultLocale="en-US"
+          defaultLocale="zh-TW"
         >
           <RouterProvider router={routers} />
         </IntlProvider>

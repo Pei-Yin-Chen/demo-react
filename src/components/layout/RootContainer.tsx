@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, Outlet } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import { HeaderStyle } from "./styles";
 import {
@@ -14,7 +15,7 @@ import MainHeader from "./MainHeader";
 type MenuItem = Required<MenuProps>["items"][number];
 
 const items: MenuItem[] = [
-  { key: "1", icon: <PieChartOutlined />, label: "Option 1" },
+  { key: "loginSetting", icon: <PieChartOutlined />, label: "Option 1" },
   { key: "2", icon: <DesktopOutlined />, label: "Option 2" },
   { key: "3", icon: <ContainerOutlined />, label: "Option 3" },
   {
@@ -51,10 +52,11 @@ function RootContainer() {
   const { Header, Content, Footer, Sider } = Layout;
   const { styles: headerStyles } = HeaderStyle();
   const [collapsed, setCollapsed] = useState(false);
+  const navigate = useNavigate();
 
   const toggleSidebar = () => {
     setCollapsed((prev) => !prev);
-  }
+  };
 
   return (
     <>
@@ -69,9 +71,13 @@ function RootContainer() {
               mode="inline"
               style={{ height: "100%" }}
               items={items}
+              defaultSelectedKeys={["loginSetting"]}
+              onClick={({ key }) => navigate(key)}
             ></Menu>
           </Sider>
-          <Content className={headerStyles.ContentWrapper}>Content</Content>
+          <Content className={headerStyles.ContentWrapper}>
+            <Outlet></Outlet>
+          </Content>
         </Layout>
       </Layout>
     </>

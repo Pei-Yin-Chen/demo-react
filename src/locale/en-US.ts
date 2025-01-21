@@ -15,6 +15,11 @@ const en_US = {
   /* Header */
   language: "Language",
   logout: "Log Out",
+
+  /* 登入頁面設定 */
+  loginPage: "Login Page",
+  pageSetting: "Page Setting",
+  loginPageView: "Page Preview",
 };
 
 export default en_US;

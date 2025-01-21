@@ -48,9 +48,38 @@ export const HeaderStyle = createStyles(({ css, token }) => {
         justify-content: flex-start;
         align-items: center;
         column-gap: 8px;
+
+        .setting-field-main-title {
+          color: #323233;
+          font-weight: bold;
+        }
+
+        .setting-field-subtitle {
+          color: #89898a;
+          font-size: 12px;
+        }
+      }
+
+      .language-management {
+        .setting-field-main-title {
+          color: #323233;
+        }
+
+        .setting-field-subtitle {
+          color: #89898a;
+          font-size: 12px;
+        }
       }
 
       .logout-management {
+        .setting-field-main-title {
+          color: #323233;
+        }
+
+        .setting-field-subtitle {
+          color: #89898a;
+          font-size: 12px;
+        }
       }
     `,
 
