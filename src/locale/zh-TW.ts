@@ -20,6 +20,8 @@ const zh_TW = {
   loginPage: "登入頁面",
   pageSetting: "自定義登入頁面設定",
   loginPageView: "登入頁面預覽",
+  show: "顯示",
+  hide: "隱藏",
 };
 
 export default zh_TW;

@@ -184,6 +184,7 @@ function LoginPage() {
                   <SvgIcon
                     name="triangle-down-normal"
                     size="24"
+                    color="#323233"
                   />
                 </Space>
               </a>

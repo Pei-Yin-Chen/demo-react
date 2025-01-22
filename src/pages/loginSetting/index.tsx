@@ -1,3 +1,4 @@
+import LoginViewPage from "../../components/loginView";
 import { LoginSettingStyle } from "./styles";
 import { FormattedMessage } from "react-intl";
 
@@ -19,7 +20,7 @@ function LoginSettingPage() {
           <FormattedMessage id="loginPageView" />
         </div>
         <div className="body-box-preview">
-          123
+          <LoginViewPage />
         </div>
       </div>
     </div>

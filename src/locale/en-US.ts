@@ -20,6 +20,8 @@ const en_US = {
   loginPage: "Login Page",
   pageSetting: "Page Setting",
   loginPageView: "Page Preview",
+  show: "Show",
+  hide: "Hide",
 };
 
 export default en_US;

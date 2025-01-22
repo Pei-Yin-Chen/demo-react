@@ -20,6 +20,8 @@ const zh_CN = {
   loginPage: "登录页面",
   pageSetting: "自定义登录页面设定",
   loginPageView: "登录页面预览",
+  show: "显示",
+  hide: "隐藏",
 };
 
 export default zh_CN;

@@ -34,6 +34,7 @@ export const LoginSettingStyle = createStyles(({ css, token }) => {
           flex-direction: column;
           justify-content: center;
           align-items: center;
+          min-width: 1060px;
           height: 678px;
           background-color: #e6e6e6;
         }

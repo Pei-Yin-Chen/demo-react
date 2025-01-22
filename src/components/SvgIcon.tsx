@@ -10,14 +10,14 @@ interface SvgIconProps {
 const SvgIcon: React.FC<SvgIconProps> = ({
   name,
   prefix = "icon",
-  color = "#333",
+  color = "#89898A",
   size = "16",
   ...props
 }) => {
   const symbolId = `#${prefix}-${name}`;
 
   return (
-    <svg {...props} aria-hidden="true" width={size} height={size}>
+    <svg {...props} aria-hidden="true" width={size} height={size} fill={color}>
       <use href={symbolId} fill={color} />
     </svg>
   );
