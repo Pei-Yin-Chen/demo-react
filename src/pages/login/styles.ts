@@ -44,7 +44,7 @@ export const LoginStyle = createStyles(({ css, token }) => {
           justify-content: center;
           color: #323233;
           text-align: center;
-          font-weight: bold;
+          font-weight: 700;
           font-size: 20px;
         }
 
@@ -56,7 +56,7 @@ export const LoginStyle = createStyles(({ css, token }) => {
 
           .login-form-box-title {
             color: #323233;
-            font-weight: bold;
+            font-weight: 700;
             font-size: 16px;
           }
 
@@ -106,7 +106,7 @@ export const LoginStyle = createStyles(({ css, token }) => {
 
         li {
           color: #323233;
-          font-weight: bold;
+          font-weight: 700;
           padding: 0 20px;
           border-right: 1px solid #323233;
           cursor: pointer;

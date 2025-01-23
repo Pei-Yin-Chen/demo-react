@@ -6,7 +6,11 @@ import { languageMap } from "../../locale";
 import { FormattedMessage } from "react-intl";
 import { LoginViewStyles } from "./styles";
 
-function LoginViewPage() {
+interface Props {
+  settings: Record<string, boolean>;
+}
+
+function LoginViewPage({ settings }: Props) {
   const { styles: loginViewStyles } = LoginViewStyles();
   const { locale, setLocale } = useContext(LanguageContext);
 
@@ -61,15 +65,21 @@ function LoginViewPage() {
         </div>
         <div className="login-view-footer">
           <ul className="login-view-footer-links">
-            <li className="login-view-footer-item">
-              <FormattedMessage id="privacy_policy" />
-            </li>
-            <li className="login-view-footer-item">
-              <FormattedMessage id="contact_us" />
-            </li>
-            <li className="login-view-footer-item">
-              <FormattedMessage id="help" />
-            </li>
+            {settings.privacyPolicy && (
+              <li className="login-view-footer-item">
+                <FormattedMessage id="privacy_policy" />
+              </li>
+            )}
+            {settings.contactUs && (
+              <li className="login-view-footer-item">
+                <FormattedMessage id="contact_us" />
+              </li>
+            )}
+            {settings.help && (
+              <li className="login-view-footer-item">
+                <FormattedMessage id="help" />
+              </li>
+            )}
             <li className="login-view-footer-item">
               {languageMap[locale]}
               <SvgIcon name="triangle-down-normal" size="24" color="#323233" />

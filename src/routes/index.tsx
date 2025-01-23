@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { createBrowserRouter, RouteObject } from "react-router-dom";
+import { createBrowserRouter, Navigate, RouteObject } from "react-router-dom";
 
 import RootContainer from "../components/layout/RootContainer";
 import LoginSettingPage from "../pages/loginSetting";
@@ -11,6 +11,10 @@ const routes: RouteObject[] = [
     path: "/",
     element: <RootContainer />,
     children: [
+      {
+        index: true,
+        element: <Navigate to="loginSetting" replace />,
+      },
       {
         path: "loginSetting",
         element: <LoginSettingPage />,

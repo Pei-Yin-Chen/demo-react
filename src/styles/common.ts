@@ -5,7 +5,7 @@ export const CommonStyle = createStyles(({ css, token }) => {
     ButtonLinkStyle: css`
       padding-left: 0;
       padding-right: 0;
-      font-weight: bold;
+      font-weight: 700;
 
       .ant-btn-variant-link {
         box-shadow: none;
@@ -18,6 +18,7 @@ export const CommonStyle = createStyles(({ css, token }) => {
       :hover {
         border: none;
       }
+
       :focus {
         outline: none;
       }
@@ -32,9 +33,11 @@ export const CommonStyle = createStyles(({ css, token }) => {
       :hover {
         border: none;
       }
+
       :focus {
         outline: none;
       }
+
       .ant-btn-text:hover {
         border: none;
       }
@@ -46,13 +49,112 @@ export const CommonStyle = createStyles(({ css, token }) => {
 
     DropdownBasicStyle: css`
       color: #323233;
-      font-weight: bold;
+      font-weight: 700;
+
       .ant-space-gap-col-small {
         column-gap: 0;
+
         .ant-space-item {
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+      }
+    `,
+
+    /* switch 樣式：size分為預設及small */
+    SwitchStyle: css`
+      background-color: #ffffff;
+      border: 2px solid #787878;
+
+      .ant-switch-handle {
+        width: 14px;
+        height: 14px;
+        top: 2px;
+        inset-inline-start: 3px;
+
+        &::before {
+          background-color: #787878;
+        }
+      }
+
+      &:hover {
+        border-color: #787878;
+      }
+
+      &:hover:not(.ant-switch-disabled) {
+        background-color: #ffffff;
+      }
+
+      &:focus {
+        outline: none;
+      }
+
+      // 標準大小的高度與行高
+      height: 22px;
+      line-height: 22px;
+
+      &.ant-switch-small {
+        height: 16px;
+        line-height: 16px;
+
+        .ant-switch-handle {
+          width: 8px;
+          height: 8px;
+          top: 2px;
+          inset-inline-start: 2px;
+
+          &::before {
+            background-color: #787878;
+          }
+        }
+      }
+
+      &.ant-switch-checked {
+        background-color: #ffffff;
+        border: 2px solid #008cd6;
+
+        .ant-switch-handle {
+          width: 14px;
+          height: 14px;
+          top: 2px;
+          inset-inline-start: calc(100% - 17px);
+
+          &::before {
+            background-color: #008cd6;
+          }
+        }
+
+        &:hover {
+          border-color: #008cd6;
+        }
+
+        &:hover:not(.ant-switch-disabled) {
+          background-color: #ffffff;
+        }
+
+        &:focus {
+          outline: none;
+        }
+
+        // 標準大小的高度與行高
+        height: 22px;
+        line-height: 22px;
+
+        &.ant-switch-small {
+          height: 16px;
+          line-height: 16px;
+
+          .ant-switch-handle {
+            width: 8px;
+            height: 8px;
+            top: 2px;
+            inset-inline-start: calc(100% - 10px);
+
+            &::before {
+              background-color: #008cd6;
+            }
+          }
         }
       }
     `,

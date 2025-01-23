@@ -42,13 +42,13 @@ export const LoginViewStyles = createStyles(({ css, token }) => {
               justify-content: center;
               color: #323233;
               text-align: center;
-              font-weight: bold;
+              font-weight: 700;
               font-size: 20px;
             }
 
             .login-view-box-title {
               color: #323233;
-              font-weight: bold;
+              font-weight: 700;
               font-size: 16px;
               margin: 0 0 8px;
             }
@@ -125,7 +125,7 @@ export const LoginViewStyles = createStyles(({ css, token }) => {
             display: flex;
             align-items: center;
             color: #323233;
-            font-weight: bold;
+            font-weight: 700;
             padding: 0 20px;
             border-right: 1px solid #323233;
             cursor: pointer;

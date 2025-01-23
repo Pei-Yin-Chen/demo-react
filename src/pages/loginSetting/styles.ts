@@ -15,6 +15,9 @@ export const LoginSettingStyle = createStyles(({ css, token }) => {
         margin: 6px 6px 3px;
 
         .header-box-title {
+          color: #494949;
+          font-size: 20px;
+          font-weight: 700;
           line-height: 42px;
         }
       }
@@ -26,7 +29,33 @@ export const LoginSettingStyle = createStyles(({ css, token }) => {
         margin: 3px 6px 6px;
 
         .body-box-title {
+          color: #494949;
+          font-size: 18px;
+          font-weight: 700;
           line-height: 42px;
+        }
+
+        .body-box-setting {
+          color: #323233;
+          padding: 20px 0;
+
+          .body-box-setting-option {
+            min-width: 240px;
+
+            .body-box-setting-option-title {
+              color: #787878;
+              font-weight: 700;
+            }
+
+            .body-box-setting-option-action {
+              display: flex;
+              align-items: center;
+              font-size: 16px;
+              height: 24px;
+              line-height: 24px;
+              border-bottom: 1px solid #e6e6e6;
+            }
+          }
         }
 
         .body-box-preview {

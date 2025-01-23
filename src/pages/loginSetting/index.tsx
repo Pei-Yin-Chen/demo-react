@@ -1,9 +1,36 @@
+import { useState } from "react";
+import { Row, Col, Switch, Space } from "antd";
 import LoginViewPage from "../../components/loginView";
 import { LoginSettingStyle } from "./styles";
-import { FormattedMessage } from "react-intl";
+import { CommonStyle } from "../../styles/common";
+import { FormattedMessage, useIntl } from "react-intl";
 
 function LoginSettingPage() {
   const { styles: loginSettingStyles } = LoginSettingStyle();
+  const { styles: commonStyles } = CommonStyle();
+  const intl = useIntl();
+  const switchConfig = [
+    {
+      key: "privacyPolicy",
+      label: intl.formatMessage({ id: "privacy_policy" }),
+    },
+    { key: "contactUs", label: intl.formatMessage({ id: "contact_us" }) },
+    { key: "help", label: intl.formatMessage({ id: "help" }) },
+  ];
+
+  const [settings, setSettings] = useState(
+    switchConfig.reduce((acc, curr) => {
+      acc[curr.key] = true;
+      return acc;
+    }, {} as Record<string, boolean>)
+  );
+
+  const handleToggle = (key: string, checked: boolean) => {
+    setSettings((prev) => ({
+      ...prev,
+      [key]: checked,
+    }));
+  };
 
   return (
     <div className={loginSettingStyles.LoginSettingWrapper}>
@@ -16,11 +43,32 @@ function LoginSettingPage() {
         <div className="body-box-title">
           <FormattedMessage id="pageSetting" />
         </div>
+        <div className="body-box-setting">
+          <Row gutter={16}>
+            {switchConfig.map(({ key, label }) => (
+              <Col key={key} className="body-box-setting-option" span={6}>
+                <div className="body-box-setting-option-title">{label}</div>
+                <div className="body-box-setting-option-action">
+                  <Space size="small" align="center">
+                    <Switch
+                      size="small"
+                      checked={settings[key]}
+                      onChange={(checked) => handleToggle(key, checked)}
+                      className={commonStyles.SwitchStyle}
+                    />
+                    {settings[key] && <FormattedMessage id="show" />}
+                    {!settings[key] && <FormattedMessage id="hide" />}
+                  </Space>
+                </div>
+              </Col>
+            ))}
+          </Row>
+        </div>
         <div className="body-box-title">
           <FormattedMessage id="loginPageView" />
         </div>
         <div className="body-box-preview">
-          <LoginViewPage />
+          <LoginViewPage settings={settings} />
         </div>
       </div>
     </div>

@@ -51,7 +51,7 @@ export const HeaderStyle = createStyles(({ css, token }) => {
 
         .setting-field-main-title {
           color: #323233;
-          font-weight: bold;
+          font-weight: 700;
         }
 
         .setting-field-subtitle {
