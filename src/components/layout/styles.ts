@@ -1,7 +1,13 @@
 import { createStyles } from "antd-style";
 
-export const HeaderStyle = createStyles(({ css, token }) => {
+export const LayoutStyle = createStyles(({ css, token }) => {
   return {
+    LayoutWrapper: css`
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    `,
+
     HeaderWrapper: css`
       height: 56px;
       padding: 0 20px;
@@ -21,6 +27,21 @@ export const HeaderStyle = createStyles(({ css, token }) => {
           div {
             display: flex;
             align-items: center;
+          }
+
+          .logo {
+            height: 56px;
+            padding: 0;
+            cursor: pointer;
+
+            .logo-icon {
+            }
+
+            .logo-name {
+              height: inherit;
+              font-size: 28px;
+              padding: 0 8px;
+            }
           }
         }
 
@@ -81,11 +102,23 @@ export const HeaderStyle = createStyles(({ css, token }) => {
           font-size: 12px;
         }
       }
+
+      .admin-setting-management {
+        .setting-field-main-title {
+          color: #323233;
+        }
+
+        .setting-field-subtitle {
+          color: #89898a;
+          font-size: 12px;
+        }
+      }
     `,
 
     ContentWrapper: css`
-      height: calc(100vh - 56px);
+      flex: 1;
       width: calc(100% - 200px);
+      overflow: auto;
     `,
   };
 });

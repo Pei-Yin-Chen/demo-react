@@ -1,12 +1,13 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Space, Button, Dropdown, Avatar } from "antd";
+import { Space, Button, Dropdown, Avatar, theme } from "antd";
 import { SunOutlined, MoonOutlined, SettingOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
+import type { ThemeConfig } from "antd/lib";
 import SvgIcon from "../SvgIcon";
 import { CommonStyle } from "../../styles/common";
-import { HeaderStyle } from "./styles";
-import { LanguageContext } from "../../App";
+import { LayoutStyle } from "./styles";
+import { GlobalSettingContext } from "../../App";
 import { languageMap } from "../../locale";
 import { FormattedMessage, useIntl } from "react-intl";
 
@@ -16,20 +17,25 @@ interface Props {
 
 function MainHeader({ onToggleSidebar }: Props) {
   const [light, setLight] = useState(true);
-  const { styles: headerStyles } = HeaderStyle();
+  const { styles: layoutStyles } = LayoutStyle();
   const { styles: commonStyles } = CommonStyle();
-  const { locale, setLocale } = useContext(LanguageContext);
+  const { locale, setLocale, themeConfig, setThemeConfig } =
+    useContext(GlobalSettingContext);
   const navigate = useNavigate();
 
   const handleClickTheme = () => {
     setLight(!light);
+    setThemeConfig({
+      ...themeConfig,
+      algorithm: light ? theme.darkAlgorithm : theme.defaultAlgorithm,
+    });
   };
 
-  const menuItems: MenuProps["items"] = [
+  const avatarMenuItems: MenuProps["items"] = [
     {
       key: "avatar",
       label: (
-        <div className={headerStyles.HeaderUserMgntWrapper}>
+        <div className={layoutStyles.HeaderUserMgntWrapper}>
           <div className="user-management">
             <Avatar
               size="large"
@@ -48,7 +54,7 @@ function MainHeader({ onToggleSidebar }: Props) {
     {
       key: "language",
       label: (
-        <div className={headerStyles.HeaderUserMgntWrapper}>
+        <div className={layoutStyles.HeaderUserMgntWrapper}>
           <div className="language-management">
             <div className="setting-field-main-title">
               <FormattedMessage id="language" />
@@ -75,10 +81,25 @@ function MainHeader({ onToggleSidebar }: Props) {
     {
       key: "logout",
       label: (
-        <div className={headerStyles.HeaderUserMgntWrapper}>
+        <div className={layoutStyles.HeaderUserMgntWrapper}>
           <div className="logout-management">
             <div className="setting-field-main-title">
               <FormattedMessage id="logout" />
+            </div>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
+  const adminSettingMenuItems: MenuProps["items"] = [
+    {
+      key: "adminSetting",
+      label: (
+        <div className={layoutStyles.HeaderUserMgntWrapper}>
+          <div className="admin-setting-management">
+            <div className="setting-field-main-title">
+              <FormattedMessage id="adminSetting" />
             </div>
           </div>
         </div>
@@ -91,7 +112,13 @@ function MainHeader({ onToggleSidebar }: Props) {
       setLocale(key);
     } else if (key === "logout") {
       navigate("/login");
+    } else if (key === "adminSetting") {
+      navigate("/loginSetting");
     }
+  };
+
+  const handleClickLogo = () => {
+    navigate("/overview");
   };
 
   return (
@@ -106,6 +133,12 @@ function MainHeader({ onToggleSidebar }: Props) {
               onClick={onToggleSidebar}
             />
           </div>
+          <div className="logo" onClick={() => handleClickLogo()}>
+            <div className="logo-icon">
+              <SvgIcon name="react" size="24" />
+            </div>
+            <div className="logo-name">React</div>
+          </div>
         </Space>
       </div>
       <div className="right-content">
@@ -118,6 +151,15 @@ function MainHeader({ onToggleSidebar }: Props) {
           onClick={() => handleClickTheme()}
         />
         <SettingOutlined style={{ fontSize: "20px" }} />
+        <Dropdown
+          menu={{ items: adminSettingMenuItems, onClick }}
+          trigger={["click"]}
+          placement="bottom"
+        >
+          <a onClick={(e) => e.preventDefault()}>
+            <SettingOutlined style={{ fontSize: "20px" }} />
+          </a>
+        </Dropdown>
         <div>
           {light && (
             <Button
@@ -136,7 +178,10 @@ function MainHeader({ onToggleSidebar }: Props) {
             />
           )}
         </div>
-        <Dropdown menu={{ items: menuItems, onClick }} trigger={["click"]}>
+        <Dropdown
+          menu={{ items: avatarMenuItems, onClick }}
+          trigger={["click"]}
+        >
           <a onClick={(e) => e.preventDefault()}>
             <Avatar
               size="small"

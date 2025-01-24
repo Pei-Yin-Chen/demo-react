@@ -15,7 +15,7 @@ import { useResponsive } from "antd-style";
 import { LoginStyle } from "./styles";
 import { CommonStyle } from "../../styles/common";
 import SvgIcon from "../../components/SvgIcon";
-import { LanguageContext } from "../../App";
+import { GlobalSettingContext } from "../../App";
 import { languageMap } from "../../locale";
 import { FormattedMessage, useIntl } from "react-intl";
 
@@ -24,7 +24,7 @@ function LoginPage() {
   const { md } = useResponsive();
   const { styles: loginStyles } = LoginStyle();
   const { styles: commonStyles } = CommonStyle();
-  const { locale, setLocale } = useContext(LanguageContext);
+  const { locale, setLocale } = useContext(GlobalSettingContext);
   const intl = useIntl();
   const navigate = useNavigate();
 

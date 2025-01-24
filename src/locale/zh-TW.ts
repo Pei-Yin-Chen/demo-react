@@ -13,15 +13,16 @@ const zh_TW = {
   sign_in: "登入",
 
   /* Header */
+  adminSetting: "系統設定",
   language: "語言",
   logout: "退出系統",
 
   /* 登入頁面設定 */
-  loginPage: "登入頁面",
-  pageSetting: "自定義登入頁面設定",
-  loginPageView: "登入頁面預覽",
-  show: "顯示",
   hide: "隱藏",
+  loginPage: "登入頁面",
+  loginPageView: "登入頁面預覽",
+  pageSetting: "自定義登入頁面設定",
+  show: "顯示",
 };
 
 export default zh_TW;

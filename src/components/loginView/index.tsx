@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Flex, Divider } from "antd";
 import SvgIcon from "../SvgIcon";
-import { LanguageContext } from "../../App";
+import { GlobalSettingContext } from "../../App";
 import { languageMap } from "../../locale";
 import { FormattedMessage } from "react-intl";
 import { LoginViewStyles } from "./styles";
@@ -12,7 +12,7 @@ interface Props {
 
 function LoginViewPage({ settings }: Props) {
   const { styles: loginViewStyles } = LoginViewStyles();
-  const { locale, setLocale } = useContext(LanguageContext);
+  const { locale, setLocale } = useContext(GlobalSettingContext);
 
   return (
     <div className={loginViewStyles.LoginViewWrapper}>

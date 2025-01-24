@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate, Outlet } from "react-router-dom";
+import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import { Layout, Menu } from "antd";
-import { HeaderStyle } from "./styles";
+import { LayoutStyle } from "./styles";
 import {
   AppstoreOutlined,
   ContainerOutlined,
@@ -50,35 +50,42 @@ const items: MenuItem[] = [
 
 function RootContainer() {
   const { Header, Content, Footer, Sider } = Layout;
-  const { styles: headerStyles } = HeaderStyle();
+  const { styles: layoutStyles } = LayoutStyle();
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   const toggleSidebar = () => {
     setCollapsed((prev) => !prev);
   };
 
+  const hideSidePath = ["/overview"];
+  const showSidebar = !hideSidePath.includes(location.pathname);
+
   return (
     <>
-      <Layout>
-        <Header className={headerStyles.HeaderWrapper}>
+      <Layout className={layoutStyles.LayoutWrapper}>
+        <Header className={layoutStyles.HeaderWrapper}>
           <MainHeader onToggleSidebar={toggleSidebar}></MainHeader>
         </Header>
-        <Layout>
-          <Sider width={200} trigger={null} collapsible collapsed={collapsed}>
-            <Menu
-              theme="light"
-              mode="inline"
-              style={{ height: "100%" }}
-              items={items}
-              defaultSelectedKeys={["loginSetting"]}
-              onClick={({ key }) => navigate(key)}
-            ></Menu>
-          </Sider>
-          <Content className={headerStyles.ContentWrapper}>
-            <Outlet></Outlet>
-          </Content>
-        </Layout>
+        {showSidebar && (
+          <Layout>
+            <Sider width={200} trigger={null} collapsible collapsed={collapsed}>
+              <Menu
+                theme="light"
+                mode="inline"
+                style={{ height: "100%" }}
+                items={items}
+                defaultSelectedKeys={["loginSetting"]}
+                onClick={({ key }) => navigate(key)}
+              ></Menu>
+            </Sider>
+            <Content className={layoutStyles.ContentWrapper}>
+              <Outlet />
+            </Content>
+          </Layout>
+        )}
+        {!showSidebar && <Outlet />}
       </Layout>
     </>
   );

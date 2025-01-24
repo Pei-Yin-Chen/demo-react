@@ -6,7 +6,6 @@ export const LoginSettingStyle = createStyles(({ css, token }) => {
       display: flex;
       flex-direction: column;
       height: 100%;
-      overflow: auto;
 
       .header-box {
         height: 42px;
@@ -23,9 +22,9 @@ export const LoginSettingStyle = createStyles(({ css, token }) => {
       }
 
       .body-box {
-        height: calc(100% - 42px);
+        height: 900px;
         background-color: #fafafa;
-        padding: 0 20px;
+        padding: 10px 20px;
         margin: 3px 6px 6px;
 
         .body-box-title {

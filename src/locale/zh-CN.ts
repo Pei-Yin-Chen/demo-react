@@ -13,15 +13,16 @@ const zh_CN = {
   sign_in: "登录",
 
   /* Header */
+  adminSetting: "系统设定",
   language: "语言",
   logout: "退出登录",
 
   /* 登入頁面設定 */
-  loginPage: "登录页面",
-  pageSetting: "自定义登录页面设定",
-  loginPageView: "登录页面预览",
-  show: "显示",
   hide: "隐藏",
+  loginPage: "登录页面",
+  loginPageView: "登录页面预览",
+  pageSetting: "自定义登录页面设定",
+  show: "显示",
 };
 
 export default zh_CN;

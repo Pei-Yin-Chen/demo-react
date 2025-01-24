@@ -13,15 +13,16 @@ const en_US = {
   sign_in: "Sign In",
 
   /* Header */
+  adminSetting: "Admin Setting",
   language: "Language",
   logout: "Log Out",
 
   /* 登入頁面設定 */
-  loginPage: "Login Page",
-  pageSetting: "Page Setting",
-  loginPageView: "Page Preview",
-  show: "Show",
   hide: "Hide",
+  loginPage: "Login Page",
+  loginPageView: "Page Preview",
+  pageSetting: "Page Setting",
+  show: "Show",
 };
 
 export default en_US;
