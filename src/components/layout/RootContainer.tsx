@@ -85,7 +85,11 @@ function RootContainer() {
             </Content>
           </Layout>
         )}
-        {!showSidebar && <Outlet />}
+        {!showSidebar && (
+          <Content className={layoutStyles.ContentWrapper}>
+            <Outlet />
+          </Content>
+        )}
       </Layout>
     </>
   );

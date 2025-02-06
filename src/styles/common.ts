@@ -43,6 +43,28 @@ export const CommonStyle = createStyles(({ css, token }) => {
       }
     `,
 
+    RadioGroupStyle: css`
+      .ant-radio-button-wrapper {
+        padding: 0 4px;
+
+        :first-child {
+          border-start-start-radius: 4px;
+          border-end-start-radius: 4px;
+        }
+
+        :last-child {
+          border-start-end-radius: 4px;
+          border-end-end-radius: 4px;
+        }
+
+        span {
+          display: flex;
+          align-items: center;
+          height: 100%;
+        }
+      }
+    `,
+
     InputStyle: css`
       border-radius: 4px;
     `,

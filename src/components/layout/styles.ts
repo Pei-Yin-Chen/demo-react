@@ -117,7 +117,7 @@ export const LayoutStyle = createStyles(({ css, token }) => {
 
     ContentWrapper: css`
       flex: 1;
-      width: calc(100% - 200px);
+      width: 100%;
       overflow: auto;
     `,
   };
