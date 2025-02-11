@@ -15,7 +15,7 @@ export const OverviewStyles = createStyles(({ css, token }) => {
           font-weight: 700;
           line-height: 48px;
         }
-  
+
         .overview-header-content {
           display: flex;
           justify-content: space-between;
@@ -42,7 +42,7 @@ export const OverviewStyles = createStyles(({ css, token }) => {
           .dataset-list-group {
             padding-top: 12px;
             border-bottom: 1px solid #c8c8c8;
-  
+
             .dataset-list-title {
               height: 24px;
               line-height: 24px;
@@ -50,10 +50,10 @@ export const OverviewStyles = createStyles(({ css, token }) => {
               font-weight: 700;
               font-size: 16px;
             }
-  
+
             .dataset-list {
               padding: 12px 0 24px;
-  
+
               .dataset-list-outer {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -70,20 +70,21 @@ export const OverviewStyles = createStyles(({ css, token }) => {
                   align-items: center;
                   justify-content: center;
                 }
-  
+
                 .dataset-list-app {
                   margin-left: 8px;
                   padding: 12px;
                   cursor: pointer;
                   border-radius: 4px;
-  
+                  width: 300px;
+
                   &:hover {
                     background-color: #f2f7fd;
                   }
                   &:active {
                     background-color: #e6f0fb;
                   }
-  
+
                   .dataset-list-app-title {
                     height: 24px;
                     line-height: 24px;
@@ -91,37 +92,67 @@ export const OverviewStyles = createStyles(({ css, token }) => {
                     font-weight: 700;
                     color: #323233;
                   }
-  
-                  .dataset-list-app-content {
-                    height: 16px;
-                    line-height: 16px;
-                    font-size: 12px;
-                    color: #89898A;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    overflow: hidden;
-                  }
 
-                  @media screen and (max-width: 1040px) {
-                    width: 440px;
-                  }
-                  @media screen and (min-width: 1040px) and (max-width: 1240px) {
-                    width: 210px;
-                  }
-                  @media screen and (min-width: 1240px) {
-                    width: 300px;
-                  }
+
                 }
               }
             }
           }
-  
+
           .dataset-list-group:first-child {
             padding-top: 0;
           }
-  
+
           .dataset-list-group:last-child {
             border-bottom: none;
+          }
+        }
+
+        .dataset-card {
+          padding-top: 12px;
+
+          .dataset-card-outer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px 24px;
+
+            .dataset-card-box {
+              border: 1px solid #c8c8c8;
+              border-radius: 4px;
+              background-color: #f7f8f5;
+
+              &:hover {
+                border-color: #89898a;
+              }
+              &:active {
+                border-color: #008cd6;
+              }
+            }
+
+            .dataset-card-box-row {
+              height: 200px;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              text-align: center;
+              cursor: pointer;
+
+              .dataset-card-app-icon {
+                width: 96px;
+                height: 96px;
+              }
+
+              .dataset-card-app {
+                .dataset-card-app-title {
+                  height: 24px;
+                  line-height: 24px;
+                  font-size: 16px;
+                  font-weight: 700;
+                  color: #323233;
+                }
+              }
+            }
           }
         }
 
@@ -129,9 +160,9 @@ export const OverviewStyles = createStyles(({ css, token }) => {
           width: 360px;
           height: 665px;
           padding: 16px;
-          border: 1px solid #C8C8C8;
+          border: 1px solid #c8c8c8;
           border-radius: 4px;
-          background-color: #FFFFFF;
+          background-color: #ffffff;
           box-sizing: content-box;
 
           .aside-area {
@@ -147,7 +178,6 @@ export const OverviewStyles = createStyles(({ css, token }) => {
             display: flex;
           }
         }
-
       }
     `,
   };

@@ -180,5 +180,8 @@ export const CommonStyle = createStyles(({ css, token }) => {
         }
       }
     `,
+
+    TabStyle: css`
+    `,
   };
 });
