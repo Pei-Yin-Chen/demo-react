@@ -6,6 +6,7 @@ export const CommonStyle = createStyles(({ css, token }) => {
       padding-left: 0;
       padding-right: 0;
       font-weight: 700;
+      border: none;
 
       .ant-btn-variant-link {
         box-shadow: none;
@@ -21,6 +22,24 @@ export const CommonStyle = createStyles(({ css, token }) => {
 
       :focus {
         outline: none;
+      }
+
+      /* 藍色字體 */
+      &.btn-blue-color {
+        color: #008cd6 !important;
+      }
+
+      &.btn-blue-color:hover {
+        color: #006aa5 !important;
+      }
+
+      &.btn-blue-color:active {
+        color: #008cd6 !important;
+      }
+
+      /* icon 180度旋轉 */
+      .icon-rotate {
+        transform: rotate(180deg);
       }
     `,
 

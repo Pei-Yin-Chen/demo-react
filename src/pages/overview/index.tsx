@@ -2,9 +2,10 @@ import React, { useState, useMemo } from "react";
 import {
   Radio,
   Flex,
-  Button,
   Divider,
   Tabs,
+  Col,
+  Row,
 } from "antd";
 import type { TabsProps } from "antd";
 import {
@@ -18,6 +19,7 @@ import SvgIcon from "../../components/SvgIcon";
 import { OverviewStyles } from "./styles";
 import { CommonStyle } from "../../styles/common";
 import CTooltip from "../../components/antd/CTooltip";
+import CButton from "../../components/antd/CButton";
 
 function OverviewPage() {
   const { styles: overviewStyles } = OverviewStyles();
@@ -93,6 +95,34 @@ function OverviewPage() {
     [activeTab]
   );
 
+  const notificationList = [
+    {
+      user: "Ann",
+      type: "Event category",
+      description:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, quo sit ea autem, itaque quam accusamus alias repudiandae libero nihil voluptates. Expedita esse quibusdam voluptate atque nobis deserunt obcaecati tempore.",
+      updateTime: "2024/01/01 08:00",
+    },
+    {
+      user: "Mike",
+      type: "Event category",
+      description: "Lorem ipsum dolor sit amet consectetur adipisicing elit.",
+      updateTime: "2024/02/01 09:00",
+    },
+    {
+      user: "Mike",
+      type: "Event category",
+      description: "Lorem ipsum dolor sit amet.",
+      updateTime: "2024/02/01 10:00",
+    },
+    {
+      user: "Kitty",
+      type: "Event category",
+      description: "Lorem ipsum dolor sit amet.",
+      updateTime: "2024/02/01 10:10",
+    },
+  ];
+
   return (
     <div className={overviewStyles.OverviewWrapper}>
       <div className="overview-header">
@@ -159,7 +189,7 @@ function OverviewPage() {
                             <CTooltip
                               text={item.description}
                               placement="bottom"
-                              maxWidth={276}
+                              maxWidth={250}
                               height="16px"
                               lineHeight="16px"
                               fontSize="12px"
@@ -198,11 +228,10 @@ function OverviewPage() {
                           <div className="dataset-card-app-title">
                             {item.name}
                           </div>
-                          {/* <div className="dataset-card-app-content">{item.description}</div> */}
                           <CTooltip
                             text={item.description}
                             placement="bottom"
-                            maxWidth={360}
+                            maxWidth={320}
                             height="16px"
                             lineHeight="16px"
                             fontSize="12px"
@@ -221,26 +250,77 @@ function OverviewPage() {
           <div>
             <div className="aside-area">Document</div>
             <div className="document-link">
-              <Button
+              <CButton
                 className={commonStyles.ButtonLinkStyle}
                 color="primary"
                 variant="link"
+                iconPosition="end"
+                iconName="caret-left-normal"
+                iconSize={24}
+                iconClassName="icon-rotate"
+                colorClass="btn-blue-color"
               >
                 Quick start
-              </Button>
+              </CButton>
             </div>
             <div className="document-link">
-              <Button
+              <CButton
                 className={commonStyles.ButtonLinkStyle}
                 color="primary"
                 variant="link"
+                iconPosition="end"
+                iconName="caret-left-normal"
+                iconSize={24}
+                iconClassName="icon-rotate"
+                colorClass="btn-blue-color"
               >
                 Contact us
-              </Button>
+              </CButton>
             </div>
             <Divider />
             <div>
               <div className="aside-area">Notification</div>
+              {notificationList.map((item) => (
+                <div className="notification-list">
+                  <Row
+                    align="middle"
+                    gutter={4}
+                    className="notification-list-issue"
+                  >
+                    <Col>
+                      <div
+                        style={{
+                          height: "8px",
+                          width: "8px",
+                          backgroundColor: "#F55D3E",
+                          borderRadius: "50%",
+                        }}
+                      ></div>
+                    </Col>
+                    <Col>
+                      <SvgIcon name="app-16-normal" size={16} />
+                    </Col>
+                    <Col flex="auto">
+                      <span>{item.user}</span>
+                    </Col>
+                    <Col>
+                      <span>{item.updateTime}</span>
+                    </Col>
+                  </Row>
+                  <div className="notification-list-content">
+                    <div className="notification-list-title">{item.type}</div>
+                    <CTooltip
+                      text={item.description}
+                      placement="bottom"
+                      maxWidth={278}
+                      height="16px"
+                      lineHeight="16px"
+                      fontSize="12px"
+                      color="#89898A"
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

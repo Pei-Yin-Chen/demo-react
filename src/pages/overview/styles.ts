@@ -76,7 +76,7 @@ export const OverviewStyles = createStyles(({ css, token }) => {
                   padding: 12px;
                   cursor: pointer;
                   border-radius: 4px;
-                  width: 300px;
+                  width: 276px;
 
                   &:hover {
                     background-color: #f2f7fd;
@@ -176,6 +176,44 @@ export const OverviewStyles = createStyles(({ css, token }) => {
             margin: 8px;
             font-size: 16px;
             display: flex;
+          }
+
+          .notification-list {
+            padding: 8px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: #f2f7fd;
+            }
+
+            &:active {
+              background-color: #e6f0fb;
+            }
+
+            .notification-list-issue {
+              div:nth-child(2) {
+                height: 16px;
+              }
+
+              div:nth-child(3) {
+                color: #89898a;
+              }
+
+              div:nth-child(4) {
+                color: #c8c8c8;
+              }
+            }
+
+            .notification-list-content {
+              padding-left: 32px;
+              margin-top: 4px;
+
+              .notification-list-title {
+                font-size: 16px;
+                line-height: 24px;
+                color: #323233;
+              }
+            }
           }
         }
       }
