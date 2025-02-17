@@ -1,28 +1,28 @@
 const en_US = {
   /* 登入頁面 */
-  account: "Account",
-  contact_us: "Contact Us",
-  forgot_password: "Forgot password",
-  help: "Help",
-  or_sign_in_with: "Or sign in with",
-  password: "Password",
-  privacy_policy: "Privacy Policy",
-  p_i_account: "Please input your account",
-  p_i_password: "Please input your password",
-  remember_me: "Remember me",
-  sign_in: "Sign In",
+  "login.account": "Account",
+  "login.contactUs": "Contact Us",
+  "login.forgotPassword": "Forgot password",
+  "login.help": "Help",
+  "login.orSignInWith": "Or sign in with",
+  "login.password": "Password",
+  "login.privacyPolicy": "Privacy Policy",
+  "login.pleaseInputAccount": "Please input your account",
+  "login.pleaseInputPassword": "Please input your password",
+  "login.rememberMe": "Remember me",
+  "login.signIn": "Sign In",
 
   /* Header */
-  adminSetting: "Admin Setting",
-  language: "Language",
-  logout: "Log Out",
+  "header.adminSetting": "Admin Setting",
+  "header.language": "Language",
+  "header.logout": "Log Out",
 
   /* 登入頁面設定 */
-  hide: "Hide",
-  loginPage: "Login Page",
-  loginPageView: "Page Preview",
-  pageSetting: "Page Setting",
-  show: "Show",
+  "loginSetting.hide": "Hide",
+  "loginSetting.loginPage": "Login Page",
+  "loginSetting.loginPageView": "Page Preview",
+  "loginSetting.pageSetting": "Page Setting",
+  "loginSetting.show": "Show",
 
   /* Overview 頁面 */
   "overView.welcome": "Welcome",

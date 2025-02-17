@@ -12,10 +12,10 @@ function LoginSettingPage() {
   const switchConfig = [
     {
       key: "privacyPolicy",
-      label: intl.formatMessage({ id: "privacy_policy" }),
+      label: intl.formatMessage({ id: "login.privacyPolicy" }),
     },
-    { key: "contactUs", label: intl.formatMessage({ id: "contact_us" }) },
-    { key: "help", label: intl.formatMessage({ id: "help" }) },
+    { key: "contactUs", label: intl.formatMessage({ id: "login.contactUs" }) },
+    { key: "help", label: intl.formatMessage({ id: "login.help" }) },
   ];
 
   const [settings, setSettings] = useState(
@@ -36,12 +36,12 @@ function LoginSettingPage() {
     <div className={loginSettingStyles.LoginSettingWrapper}>
       <div className="header-box">
         <div className="header-box-title">
-          <FormattedMessage id="loginPage" />
+          <FormattedMessage id="loginSetting.loginPage" />
         </div>
       </div>
       <div className="body-box">
         <div className="body-box-title">
-          <FormattedMessage id="pageSetting" />
+          <FormattedMessage id="loginSetting.pageSetting" />
         </div>
         <div className="body-box-setting">
           <Row gutter={16}>
@@ -56,8 +56,8 @@ function LoginSettingPage() {
                       onChange={(checked) => handleToggle(key, checked)}
                       className={commonStyles.SwitchStyle}
                     />
-                    {settings[key] && <FormattedMessage id="show" />}
-                    {!settings[key] && <FormattedMessage id="hide" />}
+                    {settings[key] && <FormattedMessage id="loginSetting.show" />}
+                    {!settings[key] && <FormattedMessage id="loginSetting.hide" />}
                   </Space>
                 </div>
               </Col>
@@ -65,7 +65,7 @@ function LoginSettingPage() {
           </Row>
         </div>
         <div className="body-box-title">
-          <FormattedMessage id="loginPageView" />
+          <FormattedMessage id="loginSetting.loginPageView" />
         </div>
         <div className="body-box-preview">
           <LoginViewPage settings={settings} />

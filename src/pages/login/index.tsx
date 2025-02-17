@@ -66,7 +66,7 @@ function LoginPage() {
             <div className="login-form-box">
               {!errorMsg && (
                 <div className="login-form-box-title">
-                  <FormattedMessage id="sign_in" />
+                  <FormattedMessage id="login.signIn" />
                 </div>
               )}
               {errorMsg && (
@@ -81,14 +81,14 @@ function LoginPage() {
                 rules={[
                   {
                     required: true,
-                    message: intl.formatMessage({ id: "p_i_account" }),
+                    message: intl.formatMessage({ id: "login.pleaseInputAccount" }),
                   },
                 ]}
               >
                 <Input
                   className={commonStyles.InputStyle}
                   size="large"
-                  placeholder={intl.formatMessage({ id: "account" })}
+                  placeholder={intl.formatMessage({ id: "login.account" })}
                 />
               </Form.Item>
               <Form.Item
@@ -96,14 +96,14 @@ function LoginPage() {
                 rules={[
                   {
                     required: true,
-                    message: intl.formatMessage({ id: "p_i_password" }),
+                    message: intl.formatMessage({ id: "login.pleaseInputPassword" }),
                   },
                 ]}
               >
                 <Input.Password
                   className={commonStyles.InputStyle}
                   size="large"
-                  placeholder={intl.formatMessage({ id: "password" })}
+                  placeholder={intl.formatMessage({ id: "login.password" })}
                 />
               </Form.Item>
             </Flex>
@@ -111,7 +111,7 @@ function LoginPage() {
               <Flex justify="space-between" align="center">
                 <Form.Item name="isRemember" valuePropName="checked" noStyle>
                   <Checkbox>
-                    <FormattedMessage id="remember_me" />
+                    <FormattedMessage id="login.rememberMe" />
                   </Checkbox>
                 </Form.Item>
                 <Button
@@ -119,14 +119,14 @@ function LoginPage() {
                   color="primary"
                   variant="link"
                 >
-                  {intl.formatMessage({ id: "forgot_password" })}
+                  {intl.formatMessage({ id: "login.forgotPassword" })}
                 </Button>
               </Flex>
               <Button type="primary" size="large" htmlType="submit" block>
-                <FormattedMessage id="sign_in" />
+                <FormattedMessage id="login.signIn" />
               </Button>
               <Divider plain>
-                <FormattedMessage id="or_sign_in_with" />
+                <FormattedMessage id="login.orSignInWith" />
               </Divider>
               <Flex
                 justify="space-between"
@@ -165,13 +165,13 @@ function LoginPage() {
       <div className="login-footer">
         <ul className="login-footer-links">
           <li className="login-footer-item">
-            <FormattedMessage id="privacy_policy" />
+            <FormattedMessage id="login.privacyPolicy" />
           </li>
           <li className="login-footer-item">
-            <FormattedMessage id="contact_us" />
+            <FormattedMessage id="login.contactUs" />
           </li>
           <li className="login-footer-item">
-            <FormattedMessage id="help" />
+            <FormattedMessage id="login.help" />
           </li>
           <li className="login-footer-item">
             <Dropdown

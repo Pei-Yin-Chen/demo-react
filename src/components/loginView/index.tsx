@@ -22,29 +22,29 @@ function LoginViewPage({ settings }: Props) {
           <div className="login-view-box">
             <div className="login-view-welcome-area">Welcome to React</div>
             <div className="login-view-box-title">
-              <FormattedMessage id="sign_in" />
+              <FormattedMessage id="login.signIn" />
             </div>
             <div className="login-view-input">
-              <FormattedMessage id="account" />
+              <FormattedMessage id="login.account" />
             </div>
             <div className="login-view-input">
-              <FormattedMessage id="password" />
+              <FormattedMessage id="login.password" />
             </div>
             <Flex gap="small" vertical>
               <div className="login-view-row">
                 <div className="login-view-remember-me">
                   <SvgIcon name="checkbox-normal" size="24" />
-                  <FormattedMessage id="remember_me" />
+                  <FormattedMessage id="login.rememberMe" />
                 </div>
                 <div className="login-view-forgot-password">
-                  <FormattedMessage id="forgot_password" />
+                  <FormattedMessage id="login.forgotPassword" />
                 </div>
               </div>
               <div className="login-view-sign-in">
-                <FormattedMessage id="sign_in" />
+                <FormattedMessage id="login.signIn" />
               </div>
               <Divider plain>
-                <FormattedMessage id="or_sign_in_with" />
+                <FormattedMessage id="login.orSignInWith" />
               </Divider>
               <Flex justify="space-between" gap="small">
                 <div className="login-view-button">
@@ -67,17 +67,17 @@ function LoginViewPage({ settings }: Props) {
           <ul className="login-view-footer-links">
             {settings.privacyPolicy && (
               <li className="login-view-footer-item">
-                <FormattedMessage id="privacy_policy" />
+                <FormattedMessage id="login.privacyPolicy" />
               </li>
             )}
             {settings.contactUs && (
               <li className="login-view-footer-item">
-                <FormattedMessage id="contact_us" />
+                <FormattedMessage id="login.contactUs" />
               </li>
             )}
             {settings.help && (
               <li className="login-view-footer-item">
-                <FormattedMessage id="help" />
+                <FormattedMessage id="login.help" />
               </li>
             )}
             <li className="login-view-footer-item">

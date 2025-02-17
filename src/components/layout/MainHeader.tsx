@@ -57,7 +57,7 @@ function MainHeader({ onToggleSidebar }: Props) {
         <div className={layoutStyles.HeaderUserMgntWrapper}>
           <div className="language-management">
             <div className="setting-field-main-title">
-              <FormattedMessage id="language" />
+              <FormattedMessage id="header.language" />
             </div>
             <div className="setting-field-subtitle">{languageMap[locale]}</div>
           </div>
@@ -84,7 +84,7 @@ function MainHeader({ onToggleSidebar }: Props) {
         <div className={layoutStyles.HeaderUserMgntWrapper}>
           <div className="logout-management">
             <div className="setting-field-main-title">
-              <FormattedMessage id="logout" />
+              <FormattedMessage id="header.logout" />
             </div>
           </div>
         </div>
@@ -99,7 +99,7 @@ function MainHeader({ onToggleSidebar }: Props) {
         <div className={layoutStyles.HeaderUserMgntWrapper}>
           <div className="admin-setting-management">
             <div className="setting-field-main-title">
-              <FormattedMessage id="adminSetting" />
+              <FormattedMessage id="header.adminSetting" />
             </div>
           </div>
         </div>
