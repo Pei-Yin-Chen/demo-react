@@ -23,6 +23,13 @@ const en_US = {
   loginPageView: "Page Preview",
   pageSetting: "Page Setting",
   show: "Show",
+
+  /* Overview 頁面 */
+  "overView.welcome": "Welcome",
+  "overView.document": "Document",
+  "overView.frequentlyAskedQuestion": "Frequently asked question",
+  "overView.contactUs": "Contact Us",
+  "overView.notification": "Notification",
 };
 
 export default en_US;

@@ -23,6 +23,13 @@ const zh_TW = {
   loginPageView: "登入頁面預覽",
   pageSetting: "自定義登入頁面設定",
   show: "顯示",
+
+  /* Overview 頁面 */
+  "overView.welcome": "歡迎",
+  "overView.document": "文件",
+  "overView.frequentlyAskedQuestion": "常見問題",
+  "overView.contactUs": "聯繫我們",
+  "overView.notification": "通知",
 };
 
 export default zh_TW;

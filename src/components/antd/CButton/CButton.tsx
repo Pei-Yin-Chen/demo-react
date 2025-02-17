@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "antd";
 import { BaseButtonProps } from "antd/es/button/button";
-import SvgIcon, { SvgIconProps } from "../SvgIcon";
+import SvgIcon, { SvgIconProps } from "../../SvgIcon";
 
 interface EntendButtonProps extends BaseButtonProps {
   iconName?: string;

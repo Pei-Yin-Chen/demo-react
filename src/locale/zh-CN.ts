@@ -23,6 +23,13 @@ const zh_CN = {
   loginPageView: "登录页面预览",
   pageSetting: "自定义登录页面设定",
   show: "显示",
+
+  /* Overview 頁面 */
+  "overView.welcome": "欢迎",
+  "overView.document": "文档",
+  "overView.frequentlyAskedQuestion": "常见问题",
+  "overView.contactUs": "联系我们",
+  "overView.notification": "通知",
 };
 
 export default zh_CN;

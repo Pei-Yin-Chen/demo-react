@@ -19,16 +19,19 @@ import SvgIcon from "../../components/SvgIcon";
 import { OverviewStyles } from "./styles";
 import { CommonStyle } from "../../styles/common";
 import CTooltip from "../../components/antd/CTooltip";
-import CButton from "../../components/antd/CButton";
+import CButton from "../../components/antd/CButton/CButton";
+import { capitalizeFirstLetter } from "../../utils/utils";
+import { FormattedMessage, useIntl } from "react-intl";
 
 function OverviewPage() {
   const { styles: overviewStyles } = OverviewStyles();
   const { styles: commonStyles } = CommonStyle();
+  const intl = useIntl();
   const [dataLayout, setDataLayout] = useState<"content" | "card">("content");
 
   const dataset = [
     {
-      type: "Chart",
+      type: "chart",
       items: [
         {
           name: "Area Chart",
@@ -52,7 +55,7 @@ function OverviewPage() {
       ],
     },
     {
-      type: "Browser",
+      type: "browser",
       items: [
         {
           name: "IE",
@@ -74,14 +77,14 @@ function OverviewPage() {
   const [contentIcon, setContentIcon] = useState("content-normal");
   const [cardIcon, setCardIcon] = useState("card-normal");
 
-  const [activeTab, setActiveTab] = useState("Chart");
+  const [activeTab, setActiveTab] = useState("chart");
   const tabCategory: TabsProps["items"] = [
     {
-      key: "Chart",
+      key: "chart",
       label: "Chart",
     },
     {
-      key: "Browser",
+      key: "browser",
       label: "Browser",
     },
   ];
@@ -126,7 +129,7 @@ function OverviewPage() {
   return (
     <div className={overviewStyles.OverviewWrapper}>
       <div className="overview-header">
-        <div className="overview-header-title">Welcome, Admin</div>
+        <div className="overview-header-title"><FormattedMessage id="overView.welcome" />, Admin</div>
         <div className="overview-header-content">
           <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
@@ -170,7 +173,7 @@ function OverviewPage() {
           {dataLayout === "content" ? (
             dataset.map((category, categoryIndex) => (
               <div key={categoryIndex} className="dataset-list-group">
-                <div className="dataset-list-title">{category.type}</div>
+                <div className="dataset-list-title">{capitalizeFirstLetter(category.type)}</div>
                 <div className="dataset-list">
                   <div className="dataset-list-outer">
                     {category.items.map((item, itemIndex) => (
@@ -248,7 +251,7 @@ function OverviewPage() {
         </div>
         <div className="overview-body-aside">
           <div>
-            <div className="aside-area">Document</div>
+            <div className="aside-area"><FormattedMessage id="overView.document" /></div>
             <div className="document-link">
               <CButton
                 className={commonStyles.ButtonLinkStyle}
@@ -260,7 +263,7 @@ function OverviewPage() {
                 iconClassName="icon-rotate"
                 colorClass="btn-blue-color"
               >
-                Quick start
+                {intl.formatMessage({ id: "overView.frequentlyAskedQuestion" })}
               </CButton>
             </div>
             <div className="document-link">
@@ -274,12 +277,12 @@ function OverviewPage() {
                 iconClassName="icon-rotate"
                 colorClass="btn-blue-color"
               >
-                Contact us
+                {intl.formatMessage({ id: "overView.contactUs" })}
               </CButton>
             </div>
             <Divider />
             <div>
-              <div className="aside-area">Notification</div>
+              <div className="aside-area"><FormattedMessage id="overView.notification" /></div>
               {notificationList.map((item) => (
                 <div className="notification-list">
                   <Row
