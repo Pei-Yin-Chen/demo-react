@@ -5,7 +5,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/demo-react/",
+  base: "/demo-react",
   plugins: [
     react(),
     createSvgIconsPlugin({
