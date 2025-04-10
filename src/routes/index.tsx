@@ -1,5 +1,5 @@
 import { lazy } from "react";
-import { createBrowserRouter, Navigate, RouteObject } from "react-router-dom";
+import { createHashRouter, Navigate, RouteObject } from "react-router-dom";
 
 import RootContainer from "../components/layout/RootContainer";
 import LoginSettingPage from "../pages/loginSetting";
@@ -32,6 +32,6 @@ const routes: RouteObject[] = [
   },
 ];
 
-const Routers = createBrowserRouter(routes);
+const Routers = createHashRouter(routes);
 
 export default Routers;
