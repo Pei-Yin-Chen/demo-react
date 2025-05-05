@@ -129,7 +129,9 @@ function OverviewPage() {
   return (
     <div className={overviewStyles.OverviewWrapper}>
       <div className="overview-header">
-        <div className="overview-header-title"><FormattedMessage id="overView.welcome" />, Admin</div>
+        <div className="overview-header-title">
+          <FormattedMessage id="overView.welcome" />, Admin
+        </div>
         <div className="overview-header-content">
           <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum
@@ -173,12 +175,14 @@ function OverviewPage() {
           {dataLayout === "content" ? (
             dataset.map((category, categoryIndex) => (
               <div key={categoryIndex} className="dataset-list-group">
-                <div className="dataset-list-title">{capitalizeFirstLetter(category.type)}</div>
+                <div className="dataset-list-title">
+                  {capitalizeFirstLetter(category.type)}
+                </div>
                 <div className="dataset-list">
                   <div className="dataset-list-outer">
                     {category.items.map((item, itemIndex) => (
-                      <div className="dataset-list-box">
-                        <Flex key={itemIndex} gap="small">
+                      <div key={itemIndex} className="dataset-list-box">
+                        <Flex gap="small">
                           <span
                             className="dataset-list-app-icon"
                             style={{ fontSize: 48, color: item.color }}
@@ -251,7 +255,9 @@ function OverviewPage() {
         </div>
         <div className="overview-body-aside">
           <div>
-            <div className="aside-area"><FormattedMessage id="overView.document" /></div>
+            <div className="aside-area">
+              <FormattedMessage id="overView.document" />
+            </div>
             <div className="document-link">
               <CButton
                 className={commonStyles.ButtonLinkStyle}
@@ -282,9 +288,11 @@ function OverviewPage() {
             </div>
             <Divider />
             <div>
-              <div className="aside-area"><FormattedMessage id="overView.notification" /></div>
-              {notificationList.map((item) => (
-                <div className="notification-list">
+              <div className="aside-area">
+                <FormattedMessage id="overView.notification" />
+              </div>
+              {notificationList.map((item, itemIndex) => (
+                <div key={itemIndex} className="notification-list">
                   <Row
                     align="middle"
                     gutter={4}

@@ -201,6 +201,15 @@ export const CommonStyle = createStyles(({ css, token }) => {
     `,
 
     TabStyle: css`
+      .ant-tabs-tab {
+        font-size: 18px;
+      }
+
+      .ant-tabs-nav-list {
+        .ant-tabs-ink-bar {
+          height: 3px;
+        }
+      }
     `,
   };
 });
