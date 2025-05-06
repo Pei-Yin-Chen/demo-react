@@ -1,6 +1,6 @@
 import { createStyles } from "antd-style";
 
-export const CommonStyle = createStyles(({ css, token }) => {
+export const CommonStyle = createStyles(({ css }) => {
   return {
     ButtonLinkStyle: css`
       padding-left: 0;

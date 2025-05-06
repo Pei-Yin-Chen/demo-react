@@ -1,6 +1,6 @@
 import { createStyles } from "antd-style";
 
-export const LoadingStyle = createStyles(({ css, token }) => {
+export const LoadingStyle = createStyles(({ css }) => {
   return {
     LoadingWrapper: css`
       z-index: 99;

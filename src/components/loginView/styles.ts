@@ -1,7 +1,7 @@
 import { createStyles } from "antd-style";
 import previewImage from "../../assets/icons/chrome.svg";
 
-export const LoginViewStyles = createStyles(({ css, token }) => {
+export const LoginViewStyles = createStyles(({ css }) => {
   return {
     LoginViewWrapper: css`
       .login-view-top {

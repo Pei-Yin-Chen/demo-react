@@ -1,6 +1,6 @@
 import { createStyles } from "antd-style";
 
-export const LoginSettingStyle = createStyles(({ css, token }) => {
+export const LoginSettingStyle = createStyles(({ css }) => {
   return {
     LoginSettingWrapper: css`
       display: flex;

@@ -1,6 +1,6 @@
 import { createStyles } from "antd-style";
 
-export const LoginStyle = createStyles(({ css, token }) => {
+export const LoginStyle = createStyles(({ css }) => {
   return {
     LoginWrapper: css`
       width: 100%;

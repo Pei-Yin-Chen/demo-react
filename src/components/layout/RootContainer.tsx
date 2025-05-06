@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useNavigate, useLocation, Outlet } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import { LayoutStyle } from "./styles";
@@ -49,7 +49,7 @@ const items: MenuItem[] = [
 ];
 
 function RootContainer() {
-  const { Header, Content, Footer, Sider } = Layout;
+  const { Header, Content, Sider } = Layout;
   const { styles: layoutStyles } = LayoutStyle();
   const [collapsed, setCollapsed] = useState(false);
   const navigate = useNavigate();

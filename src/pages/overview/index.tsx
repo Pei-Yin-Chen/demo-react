@@ -1,12 +1,5 @@
 import React, { useState, useMemo } from "react";
-import {
-  Radio,
-  Flex,
-  Divider,
-  Tabs,
-  Col,
-  Row,
-} from "antd";
+import { Radio, Flex, Divider, Tabs, Col, Row } from "antd";
 import type { TabsProps } from "antd";
 import {
   AreaChartOutlined,

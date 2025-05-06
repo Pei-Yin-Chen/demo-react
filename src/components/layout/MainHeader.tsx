@@ -1,16 +1,15 @@
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Space, Button, Dropdown, Avatar, theme } from "antd";
-import { SunOutlined, MoonOutlined, SettingOutlined } from "@ant-design/icons";
+import { Space, Button, Dropdown, Avatar } from "antd";
+import { SettingOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
-import type { ThemeConfig } from "antd/lib";
 import { darkTheme, lightTheme } from "../../styles/theme";
 import SvgIcon from "../SvgIcon";
 import { CommonStyle } from "../../styles/common";
 import { LayoutStyle } from "./styles";
 import { GlobalSettingContext } from "../../App";
 import { languageMap } from "../../locale";
-import { FormattedMessage, useIntl } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 interface Props {
   onToggleSidebar: () => void;
@@ -21,7 +20,7 @@ function MainHeader({ onToggleSidebar }: Props) {
   const [themeMode, setThemeMode] = useState<ThemeMode>("light");
   const { styles: layoutStyles } = LayoutStyle();
   const { styles: commonStyles } = CommonStyle();
-  const { locale, setLocale, themeConfig, setThemeConfig } =
+  const { locale, setLocale, setThemeConfig } =
     useContext(GlobalSettingContext);
   const navigate = useNavigate();
 
@@ -142,15 +141,6 @@ function MainHeader({ onToggleSidebar }: Props) {
         </Space>
       </div>
       <div className="right-content">
-        <SunOutlined
-          style={{ fontSize: "20px" }}
-          onClick={() => handleClickTheme()}
-        />
-        <MoonOutlined
-          style={{ fontSize: "20px" }}
-          onClick={() => handleClickTheme()}
-        />
-        <SettingOutlined style={{ fontSize: "20px" }} />
         <Dropdown
           menu={{ items: adminSettingMenuItems, onClick }}
           trigger={["click"]}

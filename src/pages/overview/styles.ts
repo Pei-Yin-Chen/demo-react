@@ -1,6 +1,6 @@
 import { createStyles } from "antd-style";
 
-export const OverviewStyles = createStyles(({ css, token }) => {
+export const OverviewStyles = createStyles(({ css }) => {
   return {
     OverviewWrapper: css`
       width: 1240px;

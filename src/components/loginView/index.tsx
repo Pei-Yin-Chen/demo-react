@@ -12,7 +12,7 @@ interface Props {
 
 function LoginViewPage({ settings }: Props) {
   const { styles: loginViewStyles } = LoginViewStyles();
-  const { locale, setLocale } = useContext(GlobalSettingContext);
+  const { locale } = useContext(GlobalSettingContext);
 
   return (
     <div className={loginViewStyles.LoginViewWrapper}>
