@@ -71,45 +71,45 @@ export const LayoutStyle = createStyles(({ css, token }) => {
         column-gap: 8px;
 
         .setting-field-main-title {
-          color: #323233;
+          color: ${token.colorTextLabel};
           font-weight: 700;
         }
 
         .setting-field-subtitle {
-          color: #89898a;
+          color: ${token.colorTextSecondary};
           font-size: 12px;
         }
       }
 
       .language-management {
         .setting-field-main-title {
-          color: #323233;
+          color: ${token.colorTextLabel};
         }
 
         .setting-field-subtitle {
-          color: #89898a;
+          color: ${token.colorTextSecondary};
           font-size: 12px;
         }
       }
 
       .logout-management {
         .setting-field-main-title {
-          color: #323233;
+          color: ${token.colorTextLabel};
         }
 
         .setting-field-subtitle {
-          color: #89898a;
+          color: ${token.colorTextSecondary};
           font-size: 12px;
         }
       }
 
       .admin-setting-management {
         .setting-field-main-title {
-          color: #323233;
+          color: ${token.colorTextLabel};
         }
 
         .setting-field-subtitle {
-          color: #89898a;
+          color: ${token.colorTextSecondary};
           font-size: 12px;
         }
       }

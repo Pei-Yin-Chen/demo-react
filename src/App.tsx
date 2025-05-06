@@ -2,7 +2,8 @@ import { createContext, useState } from "react";
 import "./App.css";
 import { RouterProvider } from "react-router-dom";
 import routers from "./routes";
-import { ConfigProvider, theme, ThemeConfig } from "antd";
+import { ConfigProvider, ThemeConfig } from "antd";
+import { lightTheme } from "./styles/theme";
 import enUS from "antd/locale/en_US";
 import zhTW from "antd/locale/zh_TW";
 import zhCN from "antd/locale/zh_CN";
@@ -19,15 +20,13 @@ interface GlobalSettingContextType {
 const GlobalSettingContext = createContext<GlobalSettingContextType>({
   locale: "zh-TW",
   setLocale: () => {},
-  themeConfig: { algorithm: theme.defaultAlgorithm },
+  themeConfig: { algorithm: lightTheme.algorithm },
   setThemeConfig: () => {},
 });
 
 function App() {
   const [locale, setLocale] = useState("zh-TW");
-  const [themeConfig, setThemeConfig] = useState<ThemeConfig>({
-    algorithm: theme.defaultAlgorithm,
-  });
+  const [themeConfig, setThemeConfig] = useState<ThemeConfig>(lightTheme);
 
   const antdLocale =
     locale === "zh-CN" ? zhCN : locale === "zh-TW" ? zhTW : enUS;

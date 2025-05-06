@@ -57,6 +57,16 @@ export const CommonStyle = createStyles(({ css, token }) => {
         outline: none;
       }
 
+      .ant-btn-icon {
+        width: 24px;
+        height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        line-height: 24px;
+      }
+
       .ant-btn-text:hover {
         border: none;
       }

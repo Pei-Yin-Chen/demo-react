@@ -4,6 +4,7 @@ import { Space, Button, Dropdown, Avatar, theme } from "antd";
 import { SunOutlined, MoonOutlined, SettingOutlined } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import type { ThemeConfig } from "antd/lib";
+import { darkTheme, lightTheme } from "../../styles/theme";
 import SvgIcon from "../SvgIcon";
 import { CommonStyle } from "../../styles/common";
 import { LayoutStyle } from "./styles";
@@ -16,7 +17,8 @@ interface Props {
 }
 
 function MainHeader({ onToggleSidebar }: Props) {
-  const [light, setLight] = useState(true);
+  type ThemeMode = "light" | "dark";
+  const [themeMode, setThemeMode] = useState<ThemeMode>("light");
   const { styles: layoutStyles } = LayoutStyle();
   const { styles: commonStyles } = CommonStyle();
   const { locale, setLocale, themeConfig, setThemeConfig } =
@@ -24,11 +26,9 @@ function MainHeader({ onToggleSidebar }: Props) {
   const navigate = useNavigate();
 
   const handleClickTheme = () => {
-    setLight(!light);
-    setThemeConfig({
-      ...themeConfig,
-      algorithm: light ? theme.darkAlgorithm : theme.defaultAlgorithm,
-    });
+    const nextMode = themeMode === "light" ? "dark" : "light";
+    setThemeMode(nextMode);
+    setThemeConfig(nextMode === "light" ? lightTheme : darkTheme);
   };
 
   const avatarMenuItems: MenuProps["items"] = [
@@ -156,12 +156,15 @@ function MainHeader({ onToggleSidebar }: Props) {
           trigger={["click"]}
           placement="bottom"
         >
-          <a onClick={(e) => e.preventDefault()}>
-            <SettingOutlined style={{ fontSize: "20px" }} />
-          </a>
+          <Button
+            type="text"
+            icon={<SettingOutlined style={{ fontSize: "20px", color: "#89898a" }} />}
+            className={commonStyles.ButtonTextStyle}
+            onClick={(e) => e.preventDefault()}
+          />
         </Dropdown>
         <div>
-          {light && (
+          {themeMode === "light" && (
             <Button
               type="text"
               icon={<SvgIcon name="theme-light-normal" size="24" />}
@@ -169,7 +172,7 @@ function MainHeader({ onToggleSidebar }: Props) {
               onClick={() => handleClickTheme()}
             />
           )}
-          {!light && (
+          {!(themeMode === "light") && (
             <Button
               type="text"
               icon={<SvgIcon name="theme-dark-normal" size="24" />}
