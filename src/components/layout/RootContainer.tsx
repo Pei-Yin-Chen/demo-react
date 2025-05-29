@@ -11,6 +11,7 @@ import {
 } from "@ant-design/icons";
 import type { MenuProps } from "antd";
 import MainHeader from "./MainHeader";
+import SvgIcon from "../SvgIcon";
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -62,6 +63,27 @@ function RootContainer() {
   const hideSidePath = ["/overview"];
   const showSidebar = !hideSidePath.includes(location.pathname);
 
+  const [menuWidth, setMenuWidth] = useState(244);
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const startX = e.clientX;
+    const startWidth = menuWidth;
+
+    const onMouseMove = (event: MouseEvent) => {
+      const diffX = event.clientX - startX;
+      const newWidth = Math.min(328, Math.max(244, startWidth + diffX));
+      setMenuWidth(newWidth);
+    };
+
+    const onMouseUp = () => {
+      document.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseup", onMouseUp);
+    };
+
+    document.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseup", onMouseUp);
+  };
+
   return (
     <>
       <Layout className={layoutStyles.LayoutWrapper}>
@@ -70,7 +92,13 @@ function RootContainer() {
         </Header>
         {showSidebar && (
           <Layout>
-            <Sider width={200} trigger={null} collapsible collapsed={collapsed}>
+            <Sider
+              width={menuWidth}
+              trigger={null}
+              collapsible
+              collapsed={collapsed}
+              collapsedWidth={0}
+            >
               <Menu
                 theme="light"
                 mode="inline"
@@ -79,6 +107,10 @@ function RootContainer() {
                 defaultSelectedKeys={["loginSetting"]}
                 onClick={({ key }) => navigate(key)}
               ></Menu>
+              <div className="collapse-button" onClick={toggleSidebar}>
+                <SvgIcon name="caret-right-normal" size={24}></SvgIcon>
+              </div>
+              <div className="resize-line" onMouseDown={handleMouseDown}></div>
             </Sider>
             <Content className={layoutStyles.ContentWrapper}>
               <Outlet />
